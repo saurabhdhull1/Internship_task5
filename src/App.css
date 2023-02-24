@@ -1,0 +1,237 @@
+/* Colors */
+:root {
+  --primary-color: #1565c0;
+  --secondary-color: #e3f2fd;
+  --background-color: #f5f5f5;
+}
+/* General Styles */
+/* 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+} */
+
+/* Header */
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: var(--primary-color);
+  color: #fff;
+  position: relative;
+}
+.App-header button{
+  display: inline-block !important;
+  position: absolute;
+  left: 20px;
+  border: none;
+  padding: 10px;
+  font-weight: 500;
+  border-radius: 12px;
+  background-color: #e3393f;
+  color: white;
+}
+.slick-slider button{
+  display: none !important;
+}
+h1 {
+  font-size: 2rem;
+}
+
+/* Search Form */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-container:hover {
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+}
+
+.search-container select, 
+.search-container input[type="text"], 
+.search-container button {
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.search-container select {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.search-container input[type="text"] {
+  flex: 2;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.search-container button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-container button:hover {
+  background-color: #1e6add;
+}
+
+/* Search Result */
+.search-result-container {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-result-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.search-result-container p {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* Flight Animation */
+.flight-animation {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 50px;
+}
+
+.flight-animation:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: pulse 2s linear infinite;
+  z-index: 1;
+}
+
+.flight-animation:after {
+  content: '';
+  position: absolute;
+  top: 50
+}
+/* 
+provide css for this code import React, { useState } from "react";
+import axios from "axios";
+import "./App.css";
+
+function App() {
+  const [codeType, setCodeType] = useState("");
+  const [airport, setAirport] = useState("");
+  const [searchResult, setSearchResult] = useState(null);
+
+  const handleCodeTypeChange = (event) => {
+    setCodeType(event.target.value);
+  };
+
+  const handleAirportChange = (event) => {
+    setAirport(event.target.value);
+  };
+
+  const handleSearch = () => {
+    axios
+      .get(`https://aerodatabox.p.rapidapi.com/airports/${codeType}/${airport}`, {
+        headers: {
+          "X-RapidAPI-Key": "e7b5687807mshac8e2df2f57973bp1c2f96jsnd6979b82ef04",
+          "X-RapidAPI-Host": "aerodatabox.p.rapidapi.com",
+        },
+      })
+      .then((response) => {
+        setSearchResult(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Airport Search</h1>
+      </header>
+      <div className="container">
+        <div className="search-container">
+          <select value={codeType} onChange={handleCodeTypeChange}>
+            <option value="" disabled>
+              Select Code Type
+            </option>
+            <option value="icao">ICAO</option>
+            <option value="iata">IATA</option>
+            <option value="faa">FAA</option>
+          </select>
+          <input
+            type="text"
+            placeholder="Airport Code"
+            value={airport}
+            onChange={handleAirportChange}
+          />
+          <button onClick={handleSearch}>Search</button>
+        </div>
+        {searchResult && (
+          <div className="search-result-container">
+            <h2>{searchResult.name}</h2>
+            <p>
+              <strong>Code:</strong> {searchResult.code}
+            </p>
+            <p>
+              <strong>Type:</strong> {searchResult.type}
+            </p>
+            <p>
+              <strong>Location:</strong> {searchResult.location}
+            </p>
+            <p>
+              <strong>Timezone:</strong> {searchResult.timezone}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+and make it 100% responsive with super good animation and hover effects
+with good coloring and blur effects
+make it responsive and good looking like flights website also add some flight animation and 
+
+*/
