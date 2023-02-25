@@ -137,48 +137,48 @@ const Search = () => {
               </thead>
 
               {airports.map((airport, index) => (
-                <tbody>
-                  <tr key={index}>
+                <tbody key={airport.iata}>
+                  <tr>
                     <th scope="row">1</th>
                     <td>Full Name</td>
                     <td>{airport.fullName}</td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">2</th>
                     <td>Country Name</td>
                     <td>{airport.country.name}</td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">3</th>
                     <td>Continent Name</td>
                     <td>{airport.continent.name}</td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">4</th>
                     <td>Location Latitude</td>
                     <td>{airport.location.lat}</td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">5</th>
                     <td>Location Longitude</td>
                     <td>{airport.location.lon}</td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">6</th>
                     <td>WebSite URL</td>
                     <td><a href={airport.urls.webSite} target='_blank'>Go to Website</a></td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">7</th>
                     <td>Twitter URL</td>
                     <td><a href={airport.urls.twitter} target='_blank'>Go to Twitter</a></td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">8</th>
                     <td>GoogleMaps URL</td>
                     <td><a href={airport.urls.googleMaps} target='_blank'>Go to Google Maps</a></td>
                   </tr>
-                  <tr key={index}>
+                  <tr>
                     <th scope="row">9</th>
                     <td>FlightRadar URL</td>
                     <td><a href={airport.urls.flightRadar} target='_blank'>Go to Flight Radar</a></td>

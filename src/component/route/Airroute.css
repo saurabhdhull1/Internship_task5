@@ -1,0 +1,12 @@
+thead{
+    /* background-color: red; */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.596);
+    border-radius: 12px;
+    margin-bottom: 10px !important;
+}
+tbody{
+    box-shadow:inset 2px 2px 10px rgba(0, 0, 0, 0.596);
+    margin-bottom: 100px;
+    padding: 20px;
+    border-radius: 12px;
+}

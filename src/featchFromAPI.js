@@ -12,15 +12,6 @@ const options = {
   }
 };
 
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
-
 export const featchFromAPI = async (url) => {
   const { data } = await axios.get(`${BASE_URL}/${url}?access_key=${ACCESS_KEY}`, options);
   return data;
